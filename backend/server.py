@@ -1,14 +1,17 @@
-from fastapi import FastAPI, APIRouter
+from fastapi import FastAPI, APIRouter, HTTPException
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
 import os
 import logging
+import asyncio
+import resend
 from pathlib import Path
-from pydantic import BaseModel, Field, ConfigDict
+from pydantic import BaseModel, Field, ConfigDict, EmailStr
 from typing import List
 import uuid
 from datetime import datetime, timezone
+from email_templates import get_admin_notification_email, get_client_confirmation_email
 
 
 ROOT_DIR = Path(__file__).parent
@@ -94,6 +97,88 @@ async def get_status_checks():
             check['timestamp'] = datetime.fromisoformat(check['timestamp'])
     
     return status_checks
+
+@api_router.post("/quotation/submit")
+async def submit_quotation(request: QuotationRequestCreate):
+    """Handle quotation form submission with email notifications"""
+    try:
+        # Create quotation object
+        quotation_dict = request.model_dump()
+        quotation_obj = QuotationRequest(**quotation_dict)
+        
+        # Save to database
+        doc = quotation_obj.model_dump()
+        doc['timestamp'] = doc['timestamp'].isoformat()
+        await db.quotation_requests.insert_one(doc)
+        logger.info(f"Quotation request saved: {quotation_obj.id}")
+        
+        # Prepare form data for email templates
+        form_data = {
+            'full_name': request.full_name,
+            'company_name': request.company_name,
+            'email': request.email,
+            'phone': request.phone,
+            'product_category': request.product_category,
+            'destination_country': request.destination_country,
+            'message': request.message
+        }
+        
+        # Send emails asynchronously
+        if RESEND_API_KEY:
+            # Send admin notification email
+            admin_email_data = get_admin_notification_email(form_data)
+            admin_params = {
+                "from": SENDER_EMAIL,
+                "to": [ADMIN_EMAIL],
+                "subject": admin_email_data["subject"],
+                "html": admin_email_data["html"]
+            }
+            
+            # Send client confirmation email
+            client_email_data = get_client_confirmation_email(form_data)
+            client_params = {
+                "from": SENDER_EMAIL,
+                "to": [request.email],
+                "subject": client_email_data["subject"],
+                "html": client_email_data["html"]
+            }
+            
+            # Send both emails in parallel using asyncio
+            try:
+                admin_result, client_result = await asyncio.gather(
+                    asyncio.to_thread(resend.Emails.send, admin_params),
+                    asyncio.to_thread(resend.Emails.send, client_params),
+                    return_exceptions=True
+                )
+                
+                logger.info(f"Admin email sent: {admin_result if not isinstance(admin_result, Exception) else 'Failed'}")
+                logger.info(f"Client email sent: {client_result if not isinstance(client_result, Exception) else 'Failed'}")
+                
+            except Exception as email_error:
+                logger.error(f"Error sending emails: {str(email_error)}")
+                # Continue even if email fails - quotation is saved
+        
+        return {
+            "status": "success",
+            "message": "Your quotation request has been received. We will contact you shortly.",
+            "quotation_id": quotation_obj.id
+        }
+        
+    except Exception as e:
+        logger.error(f"Error processing quotation request: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Failed to process request: {str(e)}")
+
+@api_router.get("/quotation/list", response_model=List[QuotationRequest])
+async def get_quotations():
+    """Get all quotation requests"""
+    quotations = await db.quotation_requests.find({}, {"_id": 0}).sort("timestamp", -1).to_list(1000)
+    
+    # Convert ISO string timestamps back to datetime objects
+    for quotation in quotations:
+        if isinstance(quotation['timestamp'], str):
+            quotation['timestamp'] = datetime.fromisoformat(quotation['timestamp'])
+    
+    return quotations
 
 # Include the router in the main app
 app.include_router(api_router)
