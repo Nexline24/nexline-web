@@ -3,7 +3,7 @@ import time
 
 # Test email functionality specifically
 def test_email_debug():
-    api_url = "https://nexline-corp.preview.emergentagent.com/api"
+    api_url = "https://nexline-future.preview.emergentagent.com/api"
     
     test_data = {
         "full_name": "Email Test User",
