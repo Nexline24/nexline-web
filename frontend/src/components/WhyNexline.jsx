@@ -11,8 +11,8 @@ const WhyNexline = () => {
   ];
 
   return (
-    <section id="why-nexline" className="section-padding bg-gray-50">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section id="why-nexline" className="py-24 bg-[#F9FAFB]">
+      <div className="max-w-6xl mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left Column - Text */}
           <div>
@@ -22,8 +22,8 @@ const WhyNexline = () => {
             <ul className="space-y-5">
               {reasons.map((reason, index) => (
                 <li key={index} className="flex items-start gap-4">
-                  <CheckCircle className="w-6 h-6 text-[#D4AF37] flex-shrink-0 mt-0.5" strokeWidth={2.5} />
-                  <span className="text-body-premium text-gray-700">{reason}</span>
+                  <CheckCircle className="w-5 h-5 text-[#D4AF37] flex-shrink-0 mt-0.5" strokeWidth={2.5} />
+                  <span className="text-[16px] text-gray-700 leading-relaxed">{reason}</span>
                 </li>
               ))}
             </ul>
@@ -31,11 +31,11 @@ const WhyNexline = () => {
 
           {/* Right Column - Image */}
           <div className="relative">
-            <div className="overflow-hidden rounded-xl shadow-xl">
+            <div className="overflow-hidden rounded-lg">
               <img
                 src="https://images.unsplash.com/photo-1644079446600-219068676743?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2Mzl8MHwxfHNlYXJjaHwxfHx3YXJlaG91c2UlMjBsb2dpc3RpY3N8ZW58MHx8fHwxNzcxNzM3NzcxfDA&ixlib=rb-4.1.0&q=85"
                 alt="Warehouse logistics"
-                className="w-full h-[450px] object-cover"
+                className="w-full h-[400px] object-cover"
               />
             </div>
           </div>
