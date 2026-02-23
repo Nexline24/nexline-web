@@ -20,33 +20,37 @@ const Hero = () => {
       }}
     >
       {/* Overlay */}
-      <div className="absolute inset-0 bg-[#0A2540] opacity-90"></div>
+      <div className="absolute inset-0 bg-[#0A2540] opacity-92"></div>
       
       {/* Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-8 text-center">
-        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+      <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-8 text-center py-20">
+        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight tracking-tight">
           Global Industrial Supply.<br />
           Reliable. Efficient. Trusted.
         </h1>
         
-        <p className="text-xl md:text-2xl text-gray-200 mb-4 max-w-4xl mx-auto">
-          Electrical Distribution • Automation Systems • Mechanical Equipment
-        </p>
-        <p className="text-xl md:text-2xl text-gray-200 mb-12 max-w-4xl mx-auto">
-          Power Solutions • Enterprise Hardware
-        </p>
+        <div className="max-w-4xl mx-auto space-y-2 mb-12">
+          <p className="text-xl md:text-2xl text-gray-100 font-light">
+            Electrical Distribution • Automation Systems • Mechanical Equipment
+          </p>
+          <p className="text-xl md:text-2xl text-gray-100 font-light">
+            Power Solutions • Enterprise Hardware
+          </p>
+        </div>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <div className="flex flex-col sm:flex-row gap-5 justify-center items-center mt-12">
           <Button 
             onClick={() => scrollToSection('contact')}
-            className="bg-white text-[#0A2540] hover:bg-gray-100 transition-colors duration-200 text-lg px-8 py-6"
+            size="lg"
+            className="bg-white text-[#0A2540] hover:bg-gray-50 transition-all duration-200 text-lg px-10 py-7 font-semibold shadow-lg"
           >
             Request a Quotation
           </Button>
           <Button 
             onClick={() => scrollToSection('contact')}
+            size="lg"
             variant="outline"
-            className="border-2 border-white text-white hover:bg-white hover:text-[#0A2540] transition-colors duration-200 text-lg px-8 py-6"
+            className="border-2 border-white text-white hover:bg-white hover:text-[#0A2540] transition-all duration-200 text-lg px-10 py-7 font-semibold"
           >
             Contact Sales
           </Button>
