@@ -60,32 +60,33 @@ const Solutions = () => {
   ];
 
   return (
-    <section id="solutions" className="py-24 bg-white">
+    <section id="solutions" className="py-28 bg-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <h2 className="text-4xl md:text-5xl font-bold text-[#0A2540] text-center mb-16">
+        <h2 className="text-4xl md:text-5xl font-bold text-[#0A2540] text-center mb-20 tracking-tight">
           Core Solutions
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {solutions.map((solution, index) => (
-            <Card key={index} className="border border-gray-200 hover:shadow-lg transition-shadow duration-200">
-              <CardContent className="p-6">
-                <h3 className="text-xl font-bold text-[#0A2540] mb-3">
+            <Card key={index} className="border border-gray-200 hover:shadow-xl transition-all duration-300 group">
+              <CardContent className="p-7">
+                <h3 className="text-xl font-bold text-[#0A2540] mb-4 leading-tight group-hover:text-[#D4AF37] transition-colors">
                   {solution.title}
                 </h3>
-                <p className="text-gray-700 mb-4 leading-relaxed">
+                <p className="text-gray-600 mb-6 leading-relaxed text-[15px]">
                   {solution.description}
                 </p>
                 
-                {/* Image Strip */}
-                <div className="grid grid-cols-3 gap-2">
+                {/* Image Strip - Perfectly Aligned */}
+                <div className="grid grid-cols-3 gap-3">
                   {solution.images.map((image, imgIndex) => (
-                    <img
-                      key={imgIndex}
-                      src={image}
-                      alt={`${solution.title} ${imgIndex + 1}`}
-                      className="w-full h-20 object-cover rounded shadow-sm"
-                    />
+                    <div key={imgIndex} className="aspect-square overflow-hidden rounded-md">
+                      <img
+                        src={image}
+                        alt={`${solution.title} ${imgIndex + 1}`}
+                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      />
+                    </div>
                   ))}
                 </div>
               </CardContent>
