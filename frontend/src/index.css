@@ -1,12 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
     margin: 0;
-    font-family:
-        -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", "Roboto", "Oxygen",
-        "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", 
         sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -83,24 +83,111 @@ code {
         @apply bg-background text-foreground;
     }
     
-    h1, h2, h3, h4, h5, h6 {
-        @apply font-semibold;
-        letter-spacing: -0.02em;
+    /* H1 - Hero Title */
+    h1 {
+        font-size: clamp(40px, 5vw, 64px);
+        font-weight: 600;
+        letter-spacing: -0.5px;
+        line-height: 1.1;
+        margin-bottom: 24px;
     }
     
-    h1 {
-        @apply text-5xl md:text-6xl lg:text-7xl;
+    /* H2 - Section Headings */
+    h2 {
+        font-size: clamp(30px, 4vw, 38px);
+        font-weight: 600;
+        letter-spacing: -0.2px;
+        line-height: 1.2;
+        margin-bottom: 20px;
+    }
+    
+    /* H3 - Subsection Titles */
+    h3 {
+        font-size: clamp(18px, 2vw, 22px);
+        font-weight: 600;
+        letter-spacing: 0.2px;
+        line-height: 1.3;
+        margin-bottom: 12px;
+    }
+    
+    /* Body Text */
+    p {
+        font-size: 17px;
+        font-weight: 400;
+        line-height: 1.7;
+        max-width: 720px;
+    }
+}
+
+/* Luxury Spacing System */
+@layer utilities {
+    .section-padding {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+    
+    .section-padding-sm {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+    
+    /* Typography Classes */
+    .text-hero {
+        font-size: clamp(40px, 5vw, 64px);
+        font-weight: 600;
+        letter-spacing: -0.5px;
         line-height: 1.1;
     }
     
-    h2 {
-        @apply text-4xl md:text-5xl;
+    .text-tagline {
+        font-size: clamp(18px, 2vw, 20px);
+        font-weight: 500;
+        letter-spacing: 0.3px;
+        line-height: 1.5;
+    }
+    
+    .text-section-heading {
+        font-size: clamp(30px, 4vw, 38px);
+        font-weight: 600;
+        letter-spacing: -0.2px;
         line-height: 1.2;
     }
     
-    h3 {
-        @apply text-2xl md:text-3xl;
+    .text-subsection {
+        font-size: clamp(18px, 2vw, 22px);
+        font-weight: 600;
+        letter-spacing: 0.2px;
         line-height: 1.3;
+    }
+    
+    .text-body-premium {
+        font-size: 17px;
+        font-weight: 400;
+        line-height: 1.7;
+    }
+    
+    /* Animations */
+    .fade-up {
+        animation: fadeUp 0.6s ease-out;
+    }
+    
+    @keyframes fadeUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    .hover-scale {
+        transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+    }
+    
+    .hover-scale:hover {
+        transform: scale(1.02);
     }
 }
 
