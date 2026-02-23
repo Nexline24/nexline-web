@@ -3,6 +3,7 @@ import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { Label } from './ui/label';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
 import { toast } from 'sonner';
 import { MapPin, Mail, Phone } from 'lucide-react';
 
@@ -12,8 +13,21 @@ const Contact = () => {
     company: '',
     email: '',
     phone: '',
+    productCategory: '',
+    destinationCountry: '',
     message: ''
   });
+
+  const productCategories = [
+    'Electrical Distribution Boards',
+    'Industrial Automation & PLC Systems',
+    'Power Generation & Transmission Equipment',
+    'Mechanical Equipment & Industrial Spare Parts',
+    'Inspection & Testing Devices',
+    'Industrial & Enterprise Hardware Components',
+    'Multiple Categories',
+    'Not Sure / General Inquiry'
+  ];
 
   const handleChange = (e) => {
     setFormData({
@@ -22,15 +36,24 @@ const Contact = () => {
     });
   };
 
+  const handleSelectChange = (value) => {
+    setFormData({
+      ...formData,
+      productCategory: value
+    });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     // Mock submission
-    toast.success('Thank you! Your inquiry has been received. We will contact you shortly.');
+    toast.success('Thank you! Your quotation request has been received. We will contact you shortly.');
     setFormData({
       name: '',
       company: '',
       email: '',
       phone: '',
+      productCategory: '',
+      destinationCountry: '',
       message: ''
     });
   };
@@ -39,7 +62,7 @@ const Contact = () => {
     <section id="contact" className="py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <h2 className="text-4xl md:text-5xl font-bold text-[#0A2540] text-center mb-16">
-          Contact
+          Request a Quotation
         </h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -94,7 +117,7 @@ const Contact = () => {
           <div>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <Label htmlFor="name">Name *</Label>
+                <Label htmlFor="name">Full Name *</Label>
                 <Input
                   id="name"
                   name="name"
@@ -107,7 +130,7 @@ const Contact = () => {
               </div>
 
               <div>
-                <Label htmlFor="company">Company *</Label>
+                <Label htmlFor="company">Company Name *</Label>
                 <Input
                   id="company"
                   name="company"
@@ -120,7 +143,7 @@ const Contact = () => {
               </div>
 
               <div>
-                <Label htmlFor="email">Email *</Label>
+                <Label htmlFor="email">Email Address *</Label>
                 <Input
                   id="email"
                   name="email"
@@ -133,7 +156,7 @@ const Contact = () => {
               </div>
 
               <div>
-                <Label htmlFor="phone">Phone *</Label>
+                <Label htmlFor="phone">Phone Number *</Label>
                 <Input
                   id="phone"
                   name="phone"
@@ -146,10 +169,45 @@ const Contact = () => {
               </div>
 
               <div>
+                <Label htmlFor="productCategory">Product Category *</Label>
+                <Select 
+                  value={formData.productCategory} 
+                  onValueChange={handleSelectChange}
+                  required
+                >
+                  <SelectTrigger className="mt-2">
+                    <SelectValue placeholder="Select a product category" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {productCategories.map((category, index) => (
+                      <SelectItem key={index} value={category}>
+                        {category}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div>
+                <Label htmlFor="destinationCountry">Destination Country *</Label>
+                <Input
+                  id="destinationCountry"
+                  name="destinationCountry"
+                  type="text"
+                  placeholder="Enter country of delivery"
+                  value={formData.destinationCountry}
+                  onChange={handleChange}
+                  required
+                  className="mt-2"
+                />
+              </div>
+
+              <div>
                 <Label htmlFor="message">Message *</Label>
                 <Textarea
                   id="message"
                   name="message"
+                  placeholder="Please provide part numbers, quantities, technical specifications, and any additional requirements."
                   value={formData.message}
                   onChange={handleChange}
                   required
