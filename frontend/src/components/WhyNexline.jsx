@@ -11,19 +11,19 @@ const WhyNexline = () => {
   ];
 
   return (
-    <section id="why-nexline" className="py-28 bg-gray-50">
+    <section id="why-nexline" className="section-padding bg-gray-50">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left Column - Text */}
           <div>
-            <h2 className="text-4xl md:text-5xl font-bold text-[#0A2540] mb-10 tracking-tight">
+            <h2 className="text-section-heading text-[#0A2540] mb-10">
               Why Nexline
             </h2>
             <ul className="space-y-5">
               {reasons.map((reason, index) => (
                 <li key={index} className="flex items-start gap-4">
                   <CheckCircle className="w-6 h-6 text-[#D4AF37] flex-shrink-0 mt-0.5" strokeWidth={2.5} />
-                  <span className="text-lg text-gray-700 leading-relaxed">{reason}</span>
+                  <span className="text-body-premium text-gray-700">{reason}</span>
                 </li>
               ))}
             </ul>

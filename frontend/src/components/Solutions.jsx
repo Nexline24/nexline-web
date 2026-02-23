@@ -60,9 +60,9 @@ const Solutions = () => {
   ];
 
   return (
-    <section id="solutions" className="py-28 bg-white">
+    <section id="solutions" className="section-padding bg-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <h2 className="text-4xl md:text-5xl font-bold text-[#0A2540] text-center mb-20 tracking-tight">
+        <h2 className="text-section-heading text-[#0A2540] text-center mb-20">
           Core Solutions
         </h2>
 
@@ -70,10 +70,10 @@ const Solutions = () => {
           {solutions.map((solution, index) => (
             <Card key={index} className="border border-gray-200 hover:shadow-xl transition-all duration-300 group">
               <CardContent className="p-7">
-                <h3 className="text-xl font-bold text-[#0A2540] mb-4 leading-tight group-hover:text-[#D4AF37] transition-colors">
+                <h3 className="text-subsection text-[#0A2540] mb-4 group-hover:text-[#D4AF37] transition-colors">
                   {solution.title}
                 </h3>
-                <p className="text-gray-600 mb-6 leading-relaxed text-[15px]">
+                <p className="text-gray-600 mb-6 leading-relaxed text-[16px]">
                   {solution.description}
                 </p>
                 
