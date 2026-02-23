@@ -22,25 +22,25 @@ const Header = () => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-100 shadow-sm">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-100">
+      <div className="max-w-6xl mx-auto px-6 lg:px-8">
+        <div className="flex justify-between items-center h-18 py-3">
           {/* Logo */}
           <div className="flex-shrink-0">
             <img 
               src="/logo.jpeg" 
               alt="Nexline General Trading" 
-              className="h-14 w-auto object-contain"
+              className="h-12 w-auto object-contain"
             />
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-10">
+          <nav className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="text-[#0A2540] hover:text-[#D4AF37] transition-colors duration-200 font-medium text-[15px] whitespace-nowrap"
+                className="text-[#0A2540] hover:text-[#D4AF37] transition-colors duration-200 font-medium text-[14px] whitespace-nowrap"
               >
                 {item.name}
               </button>
@@ -51,7 +51,7 @@ const Header = () => {
           <div className="hidden md:block">
             <Button 
               onClick={() => scrollToSection('contact')}
-              className="bg-[#0A2540] text-white hover:bg-[#0d2f4d] transition-colors duration-200 font-semibold px-6"
+              className="bg-[#0A2540] text-white hover:bg-[#0d2f4d] transition-colors duration-200 font-semibold px-5 text-[14px]"
             >
               Request a Quotation
             </Button>
@@ -69,20 +69,20 @@ const Header = () => {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white border-t border-gray-100 shadow-lg">
-          <nav className="px-6 py-5 space-y-4">
+        <div className="md:hidden bg-white border-t border-gray-100">
+          <nav className="px-6 py-4 space-y-3">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="block w-full text-left text-[#0A2540] hover:text-[#D4AF37] transition-colors duration-200 font-medium py-2 text-[15px]"
+                className="block w-full text-left text-[#0A2540] hover:text-[#D4AF37] transition-colors duration-200 font-medium py-2 text-[14px]"
               >
                 {item.name}
               </button>
             ))}
             <Button 
               onClick={() => scrollToSection('contact')}
-              className="w-full bg-[#0A2540] text-white hover:bg-[#0d2f4d] transition-colors duration-200 font-semibold mt-4"
+              className="w-full bg-[#0A2540] text-white hover:bg-[#0d2f4d] transition-colors duration-200 font-semibold mt-3"
             >
               Request a Quotation
             </Button>
