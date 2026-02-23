@@ -257,7 +257,8 @@ const Contact = () => {
 
               <Button 
                 type="submit"
-                className="w-full bg-[#0A2540] text-white hover:bg-[#0d2f4d] transition-colors duration-200 py-6 text-lg"
+                size="lg"
+                className="w-full bg-[#0A2540] text-white hover:bg-[#0d2f4d] transition-colors duration-200 py-7 text-lg font-semibold"
               >
                 Send Inquiry
               </Button>
