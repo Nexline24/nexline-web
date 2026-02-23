@@ -98,25 +98,25 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-24 bg-gray-50">
+    <section id="contact" className="py-28 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <h2 className="text-4xl md:text-5xl font-bold text-[#0A2540] text-center mb-16">
+        <h2 className="text-4xl md:text-5xl font-bold text-[#0A2540] text-center mb-20 tracking-tight">
           Request a Quotation
         </h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Left Column - Contact Info */}
           <div>
-            <h3 className="text-2xl font-bold text-[#0A2540] mb-8">
+            <h3 className="text-2xl font-bold text-[#0A2540] mb-10">
               Get in Touch
             </h3>
             
-            <div className="space-y-6">
-              <div className="flex items-start gap-4">
-                <MapPin className="w-6 h-6 text-[#D4AF37] flex-shrink-0 mt-1" />
+            <div className="space-y-8">
+              <div className="flex items-start gap-5">
+                <MapPin className="w-6 h-6 text-[#D4AF37] flex-shrink-0 mt-1" strokeWidth={2} />
                 <div>
-                  <p className="font-semibold text-[#0A2540] mb-1">Address</p>
-                  <p className="text-gray-700">
+                  <p className="font-semibold text-[#0A2540] mb-2 text-lg">Address</p>
+                  <p className="text-gray-600 leading-relaxed">
                     10005 Compass Building<br />
                     Ras Al Khaimah<br />
                     United Arab Emirates
@@ -124,26 +124,26 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
-                <Mail className="w-6 h-6 text-[#D4AF37] flex-shrink-0 mt-1" />
+              <div className="flex items-start gap-5">
+                <Mail className="w-6 h-6 text-[#D4AF37] flex-shrink-0 mt-1" strokeWidth={2} />
                 <div>
-                  <p className="font-semibold text-[#0A2540] mb-1">Email</p>
+                  <p className="font-semibold text-[#0A2540] mb-2 text-lg">Email</p>
                   <a 
                     href="mailto:shahid@nexlinetrading.com" 
-                    className="text-gray-700 hover:text-[#D4AF37] transition-colors"
+                    className="text-gray-600 hover:text-[#D4AF37] transition-colors"
                   >
                     shahid@nexlinetrading.com
                   </a>
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
-                <Phone className="w-6 h-6 text-[#D4AF37] flex-shrink-0 mt-1" />
+              <div className="flex items-start gap-5">
+                <Phone className="w-6 h-6 text-[#D4AF37] flex-shrink-0 mt-1" strokeWidth={2} />
                 <div>
-                  <p className="font-semibold text-[#0A2540] mb-1">Phone</p>
+                  <p className="font-semibold text-[#0A2540] mb-2 text-lg">Phone</p>
                   <a 
                     href="tel:+971564230120" 
-                    className="text-gray-700 hover:text-[#D4AF37] transition-colors"
+                    className="text-gray-600 hover:text-[#D4AF37] transition-colors"
                   >
                     +971 56 423 0120
                   </a>
