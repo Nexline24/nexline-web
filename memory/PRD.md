@@ -185,28 +185,51 @@ Build a modern, premium corporate landing page for Nexline General Trading FZ LL
 - Color palette professionally chosen
 - Logo properly integrated throughout
 
-## Latest Update - February 23, 2026
+## Latest Update - December 2025
 
-### New Section Added: "Our Future" - AI Strategic Positioning
+### New Section Added: "OUR FUTURE" - AI Strategic Positioning (COMPLETE ✅)
 
 **Positioned after "Brands We Supply" section**
 
 **Content Structure:**
-- **Headline (H1):** "Engineering Intelligence for the Next Industrial Era"
-- **Tagline:** "Intelligence that Reduces Cost. Enhances Performance. Drives Precision."
-- **Introduction:** Positions AI as operational evolution stage
-- **2-Column Layout:**
-  - Left: "Applied Artificial Intelligence" - Licensed activity, structured AI frameworks, industry experience
-  - Right: "Where Intelligence Creates Value" - 5 key value points (workflow optimization, predictive insight, resource allocation, automated decisions, data transformation)
-- **Credibility Statement:** "Industry-backed. Data-driven. Results-focused."
-- **Performance Loop:** Data → Insight → Action → Optimization → Cost Reduction → Continuous Improvement
-- **Closing Statement:** "AI is not an addition to our business. It is the direction of our future."
+- **Headline:** "OUR FUTURE" (centered, 48-56px)
+- **Tagline:** "Intelligent Systems. Measurable Efficiency." (centered, 28-32px)
+- **Introduction:** Positions AI as practical solutions for operations
 
-**Design:**
-- Clean white background with luxury spacing (100px padding)
-- Inter font typography system applied throughout
-- Minimal gold bullet points
-- Arrow icons for performance loop
-- Premium, tech-forward, modern corporate aesthetic
-- Elegant 2-column layout with perfect alignment
+**Three Specialization Blocks:**
+1. **AI Voice & Customer Support Automation**
+   - Conversational AI voice solutions (Emirates NBD reference)
+   - Deliverables: AI call handling, IVR, 24/7 support, CRM integration
+   - Outcome: Reduced staffing cost, faster response times
+   - Image: Microphone + waveform thin-line illustration
+
+2. **Process Automation & Workflow Optimization**
+   - AI-driven workflow redesign
+   - Deliverables: Document automation, AI workflows, data extraction
+   - Outcome: Lower overhead, higher speed, improved consistency
+   - Image: Gears + digital circuit thin-line illustration
+
+3. **Data Analytics & Predictive Intelligence**
+   - Operational data to actionable intelligence
+   - Deliverables: Cost optimization, demand forecasting, supplier analysis
+   - Outcome: Smarter decisions, reduced risk, cost efficiency
+   - Image: Graph + node network thin-line illustration
+
+**Closing Statement:**
+- "We will build what's next." (full-width, left-aligned)
+- Partner paragraph for forward-looking teams
+
+**Design Implementation:**
+- Clean white background (no cards, borders, shadows)
+- 120px top margin after Brands section
+- 100px spacing between specialization blocks
+- 65% text (left) / 35% image (right) layout per block
+- Images: 260px width, lazy-loaded PNGs with thin-line style
+- Responsive: Images stack BELOW text on mobile
+- Inter font typography system applied
+- Premium, minimal, corporate aesthetic
+
+**Files Updated:**
+- `/app/frontend/src/components/OurFuture.jsx` - Complete component
+- `/app/frontend/src/pages/Home.jsx` - Component included in page order
 
