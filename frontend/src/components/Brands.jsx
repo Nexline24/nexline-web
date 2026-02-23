@@ -1,64 +1,73 @@
 import React from 'react';
-import { Card, CardContent } from './ui/card';
 
 const Brands = () => {
-  const brandsColumn1 = [
+  const industrialBrands = [
     'ABB',
     'Siemens',
     'Schneider Electric',
-    'Rockwell Automation'
+    'Rockwell Automation',
+    'Yokogawa Electric',
+    'Mitsubishi Electric',
+    'General Electric'
   ];
 
-  const brandsColumn2 = [
-    'Emerson Electric',
+  const itBrands = [
     'Dell Technologies',
+    'Cisco Systems',
+    'HP',
     'Kingston Technology',
     'Anker Innovations'
   ];
 
   return (
-    <section id="brands" className="section-padding bg-[#0A2540]">
+    <section id="brands" className="py-24 bg-[#F9FAFB]">
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
-        <h2 className="text-section-heading text-white text-center mb-20">
-          Brands We Supply
-        </h2>
+        {/* Section Title */}
+        <div className="text-center mb-16">
+          <h2 className="text-section-heading text-[#0A2540] mb-4">
+            Brands We Supply
+          </h2>
+          <p className="text-[17px] text-gray-600 max-w-3xl mx-auto">
+            Global manufacturers trusted across industrial and technology ecosystems.
+          </p>
+        </div>
 
-        <Card className="bg-white border-none shadow-2xl">
-          <CardContent className="p-12 md:p-16">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20">
-              {/* Column 1 */}
-              <div className="space-y-6">
-                {brandsColumn1.map((brand, index) => (
-                  <div 
-                    key={index}
-                    className="text-[20px] font-semibold text-[#0A2540] pb-5 border-b-[1px] border-gray-200 last:border-0 tracking-[0.3px] transition-colors duration-200 hover:text-[#D4AF37] cursor-default"
-                  >
-                    {brand}
-                  </div>
-                ))}
-              </div>
+        {/* 2-Column Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+          {/* Column 1 - Industrial & Automation Systems */}
+          <div className="animate-slide-up" style={{ animationDelay: '100ms' }}>
+            <h3 className="text-[18px] font-semibold text-[#0A2540] mb-6 pb-3 border-b border-gray-300 tracking-wide">
+              Industrial & Automation Systems
+            </h3>
+            <ul className="space-y-4">
+              {industrialBrands.map((brand, index) => (
+                <li 
+                  key={index}
+                  className="text-[16px] font-medium text-gray-700 tracking-[0.5px] transition-all duration-200 hover:text-[#0A2540] hover:translate-x-1 cursor-default"
+                >
+                  {brand}
+                </li>
+              ))}
+            </ul>
+          </div>
 
-              {/* Column 2 */}
-              <div className="space-y-6">
-                {brandsColumn2.map((brand, index) => (
-                  <div 
-                    key={index}
-                    className="text-[20px] font-semibold text-[#0A2540] pb-5 border-b-[1px] border-gray-200 last:border-0 tracking-[0.3px] transition-colors duration-200 hover:text-[#D4AF37] cursor-default"
-                  >
-                    {brand}
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Disclaimer */}
-            <div className="mt-12 pt-8 border-t-[1px] border-[#D4AF37]">
-              <p className="text-[16px] text-gray-500 text-center font-medium leading-[1.8]">
-                Representative global brands supplied based on availability.
-              </p>
-            </div>
-          </CardContent>
-        </Card>
+          {/* Column 2 - IT & Infrastructure Technology */}
+          <div className="animate-slide-up" style={{ animationDelay: '200ms' }}>
+            <h3 className="text-[18px] font-semibold text-[#0A2540] mb-6 pb-3 border-b border-gray-300 tracking-wide">
+              IT & Infrastructure Technology
+            </h3>
+            <ul className="space-y-4">
+              {itBrands.map((brand, index) => (
+                <li 
+                  key={index}
+                  className="text-[16px] font-medium text-gray-700 tracking-[0.5px] transition-all duration-200 hover:text-[#0A2540] hover:translate-x-1 cursor-default"
+                >
+                  {brand}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
   );
