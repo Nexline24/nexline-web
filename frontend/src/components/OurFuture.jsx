@@ -179,7 +179,14 @@ const OurFuture = () => {
         </div>
 
         {/* Ending Section - Full Width, Left Aligned */}
-        <div className="mt-[120px] pb-24">
+        <div 
+          ref={closingRef}
+          className={`mt-[120px] pb-24 transition-all duration-700 ease-out ${
+            closingVisible 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-8'
+          }`}
+        >
           <h3 className="text-[36px] md:text-[42px] font-semibold text-[#0A2540] mb-8 tracking-tight leading-[1.2]">
             We will build what's next.
           </h3>
