@@ -101,7 +101,14 @@ const OurFuture = () => {
     <section id="our-future" className="bg-white" style={{ marginTop: '120px' }} data-testid="our-future-section">
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
         {/* Centered Header */}
-        <div className="text-center mb-20">
+        <div 
+          ref={headerRef}
+          className={`text-center mb-20 transition-all duration-700 ease-out ${
+            headerVisible 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-8'
+          }`}
+        >
           <h2 className="text-[48px] md:text-[56px] font-semibold text-[#0A2540] mb-6 tracking-tight leading-[1.1]">
             OUR FUTURE
           </h2>
@@ -118,7 +125,14 @@ const OurFuture = () => {
           {specializations.map((spec, index) => (
             <div 
               key={index}
-              className="flex flex-col lg:flex-row gap-12 items-start"
+              ref={el => blockRefs.current[index] = el}
+              data-index={index}
+              className={`flex flex-col lg:flex-row gap-12 items-start transition-all duration-700 ease-out ${
+                visibleBlocks[index] 
+                  ? 'opacity-100 translate-y-0' 
+                  : 'opacity-0 translate-y-12'
+              }`}
+              style={{ transitionDelay: '100ms' }}
               data-testid={`specialization-block-${index + 1}`}
             >
               {/* Left Side - Text (65%) */}
