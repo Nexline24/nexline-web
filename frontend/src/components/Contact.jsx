@@ -6,6 +6,10 @@ import { Label } from './ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
 import { toast } from 'sonner';
 import { MapPin, Mail, Phone } from 'lucide-react';
+import axios from 'axios';
+
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const API = `${BACKEND_URL}/api`;
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -43,19 +47,54 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Mock submission
-    toast.success('Thank you! Your quotation request has been received. We will contact you shortly.');
-    setFormData({
-      name: '',
-      company: '',
-      email: '',
-      phone: '',
-      productCategory: '',
-      destinationCountry: '',
-      message: ''
-    });
+    
+    // Check if product category is selected
+    if (!formData.productCategory) {
+      toast.error('Please select a product category');
+      return;
+    }
+    
+    try {
+      // Show loading toast
+      const loadingToast = toast.loading('Submitting your request...');
+      
+      // Prepare data for backend
+      const requestData = {
+        full_name: formData.name,
+        company_name: formData.company,
+        email: formData.email,
+        phone: formData.phone,
+        product_category: formData.productCategory,
+        destination_country: formData.destinationCountry,
+        message: formData.message
+      };
+      
+      // Send to backend
+      const response = await axios.post(`${API}/quotation/submit`, requestData);
+      
+      // Dismiss loading toast
+      toast.dismiss(loadingToast);
+      
+      // Show success message
+      toast.success('Thank you! Your quotation request has been received. We will contact you shortly.');
+      
+      // Reset form
+      setFormData({
+        name: '',
+        company: '',
+        email: '',
+        phone: '',
+        productCategory: '',
+        destinationCountry: '',
+        message: ''
+      });
+      
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast.error('Failed to submit your request. Please try again or contact us directly.');
+    }
   };
 
   return (
