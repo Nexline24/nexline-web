@@ -98,8 +98,8 @@ const OurFuture = () => {
   ];
 
   return (
-    <section id="our-future" className="bg-white" style={{ marginTop: '120px' }} data-testid="our-future-section">
-      <div className="max-w-6xl mx-auto px-6 lg:px-8">
+    <section id="our-future" className="bg-white py-24" data-testid="our-future-section">
+      <div className="max-w-5xl mx-auto px-6 lg:px-8">
         {/* Centered Header */}
         <div 
           ref={headerRef}
@@ -109,25 +109,25 @@ const OurFuture = () => {
               : 'opacity-0 translate-y-8'
           }`}
         >
-          <h2 className="text-[48px] md:text-[56px] font-semibold text-[#0A2540] mb-6 tracking-tight leading-[1.1]">
+          <h2 className="text-[44px] md:text-[52px] font-semibold text-[#0A2540] mb-5 tracking-tight leading-[1.1]">
             OUR FUTURE
           </h2>
-          <p className="text-[28px] md:text-[32px] font-medium text-gray-700 leading-[1.4] mb-8">
+          <p className="text-[26px] md:text-[30px] font-medium text-gray-600 leading-[1.4] mb-6 mx-auto">
             Intelligent Systems. Measurable Efficiency.
           </p>
-          <p className="text-[17px] text-gray-600 leading-[1.7] max-w-4xl mx-auto">
+          <p className="text-[16px] text-gray-500 leading-[1.8] max-w-3xl mx-auto">
             We will help organizations integrate practical AI solutions that will streamline operations, enhance customer experience, and reduce operational costs.
           </p>
         </div>
 
         {/* Specialization Blocks */}
-        <div className="space-y-[100px]">
+        <div className="space-y-20">
           {specializations.map((spec, index) => (
             <div 
               key={index}
               ref={el => blockRefs.current[index] = el}
               data-index={index}
-              className={`flex flex-col lg:flex-row gap-12 items-start transition-all duration-700 ease-out ${
+              className={`transition-all duration-700 ease-out ${
                 visibleBlocks[index] 
                   ? 'opacity-100 translate-y-0' 
                   : 'opacity-0 translate-y-12'
@@ -135,62 +135,69 @@ const OurFuture = () => {
               style={{ transitionDelay: '100ms' }}
               data-testid={`specialization-block-${index + 1}`}
             >
-              {/* Left Side - Text (65%) */}
-              <div className="w-full lg:w-[65%]">
-                <h3 className="text-[24px] font-semibold text-[#0A2540] mb-6 tracking-tight">
-                  {spec.title}
-                </h3>
-                
-                <p className="text-[17px] text-gray-700 leading-[1.7] mb-8">
-                  {spec.description}
-                </p>
-
-                <div className="mb-8">
-                  <p className="text-[16px] font-semibold text-[#0A2540] mb-4">
-                    We will deliver:
+              {/* Block Container */}
+              <div className="flex flex-col lg:flex-row gap-10 items-center">
+                {/* Left Side - Text */}
+                <div className="w-full lg:w-[70%] order-2 lg:order-1">
+                  <h3 className="text-[22px] font-semibold text-[#0A2540] mb-4 tracking-tight">
+                    {spec.title}
+                  </h3>
+                  
+                  <p className="text-[15px] text-gray-600 leading-[1.75] mb-6">
+                    {spec.description}
                   </p>
-                  <ul className="space-y-3">
-                    {spec.deliverables.map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-3">
-                        <span className="inline-block w-1.5 h-1.5 bg-[#0A2540] rounded-full mt-2 flex-shrink-0"></span>
-                        <span className="text-[16px] text-gray-700 leading-[1.7]">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+
+                  <div className="mb-6">
+                    <p className="text-[14px] font-semibold text-[#0A2540] mb-3 uppercase tracking-wide">
+                      We will deliver:
+                    </p>
+                    <ul className="space-y-2">
+                      {spec.deliverables.map((item, idx) => (
+                        <li key={idx} className="flex items-start gap-3">
+                          <span className="inline-block w-1 h-1 bg-[#D4AF37] rounded-full mt-2 flex-shrink-0"></span>
+                          <span className="text-[15px] text-gray-600 leading-[1.6]">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <p className="text-[14px] text-gray-500 leading-[1.6] border-l-2 border-[#D4AF37] pl-4">
+                    <span className="font-semibold text-[#0A2540]">Outcome:</span> {spec.outcome}
+                  </p>
                 </div>
 
-                <p className="text-[16px] text-gray-600 leading-[1.7]">
-                  <span className="font-semibold text-[#0A2540]">Outcome:</span> {spec.outcome}
-                </p>
+                {/* Right Side - Image */}
+                <div className="w-full lg:w-[30%] order-1 lg:order-2 flex justify-center">
+                  <img 
+                    src={spec.image}
+                    alt={spec.imageAlt}
+                    loading="lazy"
+                    className="w-[200px] h-auto opacity-80"
+                  />
+                </div>
               </div>
 
-              {/* Right Side - Image (35%) - Stacks BELOW text on mobile */}
-              <div className="w-full lg:w-[35%] flex justify-center lg:justify-end">
-                <img 
-                  src={spec.image}
-                  alt={spec.imageAlt}
-                  loading="lazy"
-                  className="w-[260px] h-auto"
-                  style={{ maxWidth: '260px' }}
-                />
-              </div>
+              {/* Divider between blocks */}
+              {index < specializations.length - 1 && (
+                <div className="border-b border-gray-100 mt-20"></div>
+              )}
             </div>
           ))}
         </div>
 
-        {/* Ending Section - Full Width, Left Aligned */}
+        {/* Ending Section - Centered */}
         <div 
           ref={closingRef}
-          className={`mt-[120px] pb-24 transition-all duration-700 ease-out ${
+          className={`mt-24 pt-16 text-center transition-all duration-700 ease-out ${
             closingVisible 
               ? 'opacity-100 translate-y-0' 
               : 'opacity-0 translate-y-8'
           }`}
         >
-          <h3 className="text-[36px] md:text-[42px] font-semibold text-[#0A2540] mb-8 tracking-tight leading-[1.2]">
+          <h3 className="text-[32px] md:text-[38px] font-semibold text-[#0A2540] mb-6 tracking-tight leading-[1.2]">
             We will build what's next.
           </h3>
-          <p className="text-[17px] text-gray-700 leading-[1.7] max-w-4xl">
+          <p className="text-[16px] text-gray-500 leading-[1.8] max-w-2xl mx-auto">
             We will partner with forward-looking teams to implement AI solutions that will continuously improve performance, strengthen competitiveness, and support scalable growth.
           </p>
         </div>
