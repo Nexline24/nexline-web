@@ -98,25 +98,25 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="section-padding bg-gray-50">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <h2 className="text-section-heading text-[#0A2540] text-center mb-20">
+    <section id="contact" className="py-24 bg-[#F9FAFB]">
+      <div className="max-w-6xl mx-auto px-6 lg:px-8">
+        <h2 className="text-section-heading text-[#0A2540] text-center mb-16">
           Request a Quotation
         </h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Left Column - Contact Info */}
           <div>
-            <h3 className="text-subsection text-[#0A2540] mb-10">
+            <h3 className="text-[20px] font-semibold text-[#0A2540] mb-8">
               Get in Touch
             </h3>
             
-            <div className="space-y-8">
-              <div className="flex items-start gap-5">
-                <MapPin className="w-6 h-6 text-[#D4AF37] flex-shrink-0 mt-1" strokeWidth={2} />
+            <div className="space-y-7">
+              <div className="flex items-start gap-4">
+                <MapPin className="w-5 h-5 text-[#D4AF37] flex-shrink-0 mt-1" strokeWidth={2} />
                 <div>
-                  <p className="font-semibold text-[#0A2540] mb-2 text-[17px]">Address</p>
-                  <p className="text-body-premium text-gray-600">
+                  <p className="font-semibold text-[#0A2540] mb-1 text-[16px]">Address</p>
+                  <p className="text-[15px] text-gray-600 leading-relaxed">
                     10005 Compass Building<br />
                     Ras Al Khaimah<br />
                     United Arab Emirates
@@ -124,26 +124,26 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="flex items-start gap-5">
-                <Mail className="w-6 h-6 text-[#D4AF37] flex-shrink-0 mt-1" strokeWidth={2} />
+              <div className="flex items-start gap-4">
+                <Mail className="w-5 h-5 text-[#D4AF37] flex-shrink-0 mt-1" strokeWidth={2} />
                 <div>
-                  <p className="font-semibold text-[#0A2540] mb-2 text-[17px]">Email</p>
+                  <p className="font-semibold text-[#0A2540] mb-1 text-[16px]">Email</p>
                   <a 
                     href="mailto:shahid@nexlinetrading.com" 
-                    className="text-body-premium text-gray-600 hover:text-[#D4AF37] transition-colors"
+                    className="text-[15px] text-gray-600 hover:text-[#D4AF37] transition-colors"
                   >
                     shahid@nexlinetrading.com
                   </a>
                 </div>
               </div>
 
-              <div className="flex items-start gap-5">
-                <Phone className="w-6 h-6 text-[#D4AF37] flex-shrink-0 mt-1" strokeWidth={2} />
+              <div className="flex items-start gap-4">
+                <Phone className="w-5 h-5 text-[#D4AF37] flex-shrink-0 mt-1" strokeWidth={2} />
                 <div>
-                  <p className="font-semibold text-[#0A2540] mb-2 text-[17px]">Phone</p>
+                  <p className="font-semibold text-[#0A2540] mb-1 text-[16px]">Phone</p>
                   <a 
                     href="tel:+971564230120" 
-                    className="text-body-premium text-gray-600 hover:text-[#D4AF37] transition-colors"
+                    className="text-[15px] text-gray-600 hover:text-[#D4AF37] transition-colors"
                   >
                     +971 56 423 0120
                   </a>
@@ -154,9 +154,9 @@ const Contact = () => {
 
           {/* Right Column - Contact Form */}
           <div>
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-5">
               <div>
-                <Label htmlFor="name">Full Name *</Label>
+                <Label htmlFor="name" className="text-[14px] font-medium text-gray-700">Full Name *</Label>
                 <Input
                   id="name"
                   name="name"
@@ -164,12 +164,12 @@ const Contact = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="mt-2"
+                  className="mt-1.5"
                 />
               </div>
 
               <div>
-                <Label htmlFor="company">Company Name *</Label>
+                <Label htmlFor="company" className="text-[14px] font-medium text-gray-700">Company Name *</Label>
                 <Input
                   id="company"
                   name="company"
@@ -177,12 +177,12 @@ const Contact = () => {
                   value={formData.company}
                   onChange={handleChange}
                   required
-                  className="mt-2"
+                  className="mt-1.5"
                 />
               </div>
 
               <div>
-                <Label htmlFor="email">Email Address *</Label>
+                <Label htmlFor="email" className="text-[14px] font-medium text-gray-700">Email Address *</Label>
                 <Input
                   id="email"
                   name="email"
@@ -190,12 +190,12 @@ const Contact = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="mt-2"
+                  className="mt-1.5"
                 />
               </div>
 
               <div>
-                <Label htmlFor="phone">Phone Number *</Label>
+                <Label htmlFor="phone" className="text-[14px] font-medium text-gray-700">Phone Number *</Label>
                 <Input
                   id="phone"
                   name="phone"
@@ -203,18 +203,18 @@ const Contact = () => {
                   value={formData.phone}
                   onChange={handleChange}
                   required
-                  className="mt-2"
+                  className="mt-1.5"
                 />
               </div>
 
               <div>
-                <Label htmlFor="productCategory">Product Category *</Label>
+                <Label htmlFor="productCategory" className="text-[14px] font-medium text-gray-700">Product Category *</Label>
                 <Select 
                   value={formData.productCategory} 
                   onValueChange={handleSelectChange}
                   required
                 >
-                  <SelectTrigger className="mt-2">
+                  <SelectTrigger className="mt-1.5">
                     <SelectValue placeholder="Select a product category" />
                   </SelectTrigger>
                   <SelectContent>
@@ -228,7 +228,7 @@ const Contact = () => {
               </div>
 
               <div>
-                <Label htmlFor="destinationCountry">Destination Country *</Label>
+                <Label htmlFor="destinationCountry" className="text-[14px] font-medium text-gray-700">Destination Country *</Label>
                 <Input
                   id="destinationCountry"
                   name="destinationCountry"
@@ -237,12 +237,12 @@ const Contact = () => {
                   value={formData.destinationCountry}
                   onChange={handleChange}
                   required
-                  className="mt-2"
+                  className="mt-1.5"
                 />
               </div>
 
               <div>
-                <Label htmlFor="message">Message *</Label>
+                <Label htmlFor="message" className="text-[14px] font-medium text-gray-700">Message *</Label>
                 <Textarea
                   id="message"
                   name="message"
@@ -250,15 +250,15 @@ const Contact = () => {
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  rows={5}
-                  className="mt-2"
+                  rows={4}
+                  className="mt-1.5"
                 />
               </div>
 
               <Button 
                 type="submit"
                 size="lg"
-                className="w-full bg-[#0A2540] text-white hover:bg-[#0d2f4d] hover-scale transition-all duration-200 py-[14px] text-[15px] font-semibold tracking-[0.4px] rounded-md shadow-lg"
+                className="w-full bg-[#0A2540] text-white hover:bg-[#0d2f4d] transition-all duration-200 py-3 text-[15px] font-semibold tracking-[0.3px] rounded-md mt-2"
               >
                 Send Inquiry
               </Button>
