@@ -35,12 +35,12 @@ const Header = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="text-[#0A2540] hover:text-[#D4AF37] transition-colors duration-200 font-medium"
+                className="text-[#0A2540] hover:text-[#D4AF37] transition-colors duration-200 font-medium whitespace-nowrap"
               >
                 {item.name}
               </button>
