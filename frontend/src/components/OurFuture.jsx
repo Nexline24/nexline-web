@@ -12,7 +12,8 @@ const OurFuture = () => {
         'CRM and backend system integration'
       ],
       outcome: 'Reduced staffing cost. Faster response times. Scalable support infrastructure.',
-      image: 'https://images.unsplash.com/photo-1589254065878-42c9da997008?w=300&h=300&fit=crop'
+      image: 'https://static.prod-images.emergentagent.com/jobs/0e9b3327-9faa-4aa5-804a-120d0d8ad0ae/images/074a114a690122d9893c9fed926d6841f6e1fdc42daa995c4440ecad62d68c0f.png',
+      imageAlt: 'Microphone with waveform illustration'
     },
     {
       title: 'Process Automation & Workflow Optimization',
@@ -24,7 +25,8 @@ const OurFuture = () => {
         'Seamless system integration'
       ],
       outcome: 'Lower administrative overhead. Higher operational speed. Improved consistency.',
-      image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=300&h=300&fit=crop'
+      image: 'https://static.prod-images.emergentagent.com/jobs/0e9b3327-9faa-4aa5-804a-120d0d8ad0ae/images/51fcab41ce4e9f5c4d346fe2fc8fa3d473aa6da4588e507bd23b2aebe60c5f06.png',
+      imageAlt: 'Gears with digital circuit illustration'
     },
     {
       title: 'Data Analytics & Predictive Intelligence',
@@ -36,12 +38,13 @@ const OurFuture = () => {
         'Profitability and margin intelligence'
       ],
       outcome: 'Smarter decisions. Reduced risk. Sustainable cost efficiency.',
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=300&h=300&fit=crop'
+      image: 'https://static.prod-images.emergentagent.com/jobs/0e9b3327-9faa-4aa5-804a-120d0d8ad0ae/images/95ab8e7dfdbad4a35a5ae42e9accab4416876fcbb7f8f2868fa497a5b48fe770.png',
+      imageAlt: 'Graph with node network illustration'
     }
   ];
 
   return (
-    <section id="our-future" className="bg-white" style={{ marginTop: '120px' }}>
+    <section id="our-future" className="bg-white" style={{ marginTop: '120px' }} data-testid="our-future-section">
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
         {/* Centered Header */}
         <div className="text-center mb-20">
@@ -62,6 +65,7 @@ const OurFuture = () => {
             <div 
               key={index}
               className="flex flex-col lg:flex-row gap-12 items-start"
+              data-testid={`specialization-block-${index + 1}`}
             >
               {/* Left Side - Text (65%) */}
               <div className="w-full lg:w-[65%]">
@@ -87,25 +91,26 @@ const OurFuture = () => {
                   </ul>
                 </div>
 
-                <p className="text-[16px] text-gray-600 leading-[1.7] italic">
-                  <span className="font-semibold text-[#0A2540] not-italic">Outcome:</span> {spec.outcome}
+                <p className="text-[16px] text-gray-600 leading-[1.7]">
+                  <span className="font-semibold text-[#0A2540]">Outcome:</span> {spec.outcome}
                 </p>
               </div>
 
-              {/* Right Side - Image (35%) */}
-              <div className="w-full lg:w-[35%] order-first lg:order-last">
+              {/* Right Side - Image (35%) - Stacks BELOW text on mobile */}
+              <div className="w-full lg:w-[35%] flex justify-center lg:justify-end">
                 <img 
                   src={spec.image}
-                  alt={spec.title}
+                  alt={spec.imageAlt}
                   loading="lazy"
-                  className="w-full max-w-[260px] mx-auto lg:mx-0 lg:ml-auto h-auto rounded-lg opacity-80 grayscale hover:grayscale-0 transition-all duration-300"
+                  className="w-[260px] h-auto"
+                  style={{ maxWidth: '260px' }}
                 />
               </div>
             </div>
           ))}
         </div>
 
-        {/* Ending Section */}
+        {/* Ending Section - Full Width, Left Aligned */}
         <div className="mt-[120px] pb-24">
           <h3 className="text-[36px] md:text-[42px] font-semibold text-[#0A2540] mb-8 tracking-tight leading-[1.2]">
             We will build what's next.
