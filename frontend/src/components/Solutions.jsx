@@ -60,27 +60,27 @@ const Solutions = () => {
   ];
 
   return (
-    <section id="solutions" className="section-padding bg-white">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <h2 className="text-section-heading text-[#0A2540] text-center mb-20">
+    <section id="solutions" className="py-24 bg-white">
+      <div className="max-w-6xl mx-auto px-6 lg:px-8">
+        <h2 className="text-section-heading text-[#0A2540] text-center mb-16">
           Core Solutions
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {solutions.map((solution, index) => (
-            <Card key={index} className="border border-gray-200 hover:shadow-xl transition-all duration-300 group">
-              <CardContent className="p-7">
-                <h3 className="text-subsection text-[#0A2540] mb-4 group-hover:text-[#D4AF37] transition-colors">
+            <Card key={index} className="border border-gray-200 hover:shadow-lg transition-all duration-300 group bg-white">
+              <CardContent className="p-6">
+                <h3 className="text-[18px] font-semibold text-[#0A2540] mb-3 leading-tight group-hover:text-[#D4AF37] transition-colors">
                   {solution.title}
                 </h3>
-                <p className="text-gray-600 mb-6 leading-relaxed text-[16px]">
+                <p className="text-[15px] text-gray-600 mb-5 leading-relaxed">
                   {solution.description}
                 </p>
                 
-                {/* Image Strip - Perfectly Aligned */}
-                <div className="grid grid-cols-3 gap-3">
+                {/* Image Strip */}
+                <div className="grid grid-cols-3 gap-2">
                   {solution.images.map((image, imgIndex) => (
-                    <div key={imgIndex} className="aspect-square overflow-hidden rounded-md">
+                    <div key={imgIndex} className="aspect-square overflow-hidden rounded">
                       <img
                         src={image}
                         alt={`${solution.title} ${imgIndex + 1}`}
