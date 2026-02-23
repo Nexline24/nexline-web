@@ -80,10 +80,21 @@ Build a modern, premium corporate landing page for Nexline General Trading FZ LL
 **Contact Section:**
 - Two-column layout
 - Left: Contact information (Address, Email, Phone) with gold icons
-- Right: Professional contact form
-  - Fields: Name, Company, Email, Phone, Message
+- Right: Professional quotation request form
+  - **Updated Form Title:** Request a Quotation
+  - **Fields:** Full Name, Company Name, Email Address, Phone Number, Product Category (dropdown with 8 options), Destination Country (text field), Message (with detailed placeholder)
   - Submit button: "Send Inquiry"
 - Form currently has frontend validation and mock submission with toast notification
+
+**Product Category Dropdown Options:**
+1. Electrical Distribution Boards
+2. Industrial Automation & PLC Systems
+3. Power Generation & Transmission Equipment
+4. Mechanical Equipment & Industrial Spare Parts
+5. Inspection & Testing Devices
+6. Industrial & Enterprise Hardware Components
+7. Multiple Categories
+8. Not Sure / General Inquiry
 
 **Footer:**
 - Nexline logo
