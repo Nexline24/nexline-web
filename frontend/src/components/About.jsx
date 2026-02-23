@@ -2,8 +2,8 @@ import React from 'react';
 
 const About = () => {
   return (
-    <section id="about" className="section-padding bg-gray-50">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section id="about" className="py-24 bg-[#F9FAFB]">
+      <div className="max-w-6xl mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left Column - Text */}
           <div>
@@ -20,11 +20,11 @@ const About = () => {
 
           {/* Right Column - Image */}
           <div className="relative">
-            <div className="overflow-hidden rounded-xl shadow-xl">
+            <div className="overflow-hidden rounded-lg">
               <img
                 src="https://images.pexels.com/photos/27111449/pexels-photo-27111449.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
                 alt="Industrial warehouse"
-                className="w-full h-[450px] object-cover"
+                className="w-full h-[400px] object-cover"
               />
             </div>
           </div>
