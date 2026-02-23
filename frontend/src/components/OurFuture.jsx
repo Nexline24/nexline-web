@@ -1,6 +1,60 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 const OurFuture = () => {
+  const [visibleBlocks, setVisibleBlocks] = useState({});
+  const blockRefs = useRef([]);
+  const headerRef = useRef(null);
+  const [headerVisible, setHeaderVisible] = useState(false);
+  const closingRef = useRef(null);
+  const [closingVisible, setClosingVisible] = useState(false);
+
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.15,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const index = entry.target.dataset.index;
+          if (index !== undefined) {
+            setVisibleBlocks(prev => ({ ...prev, [index]: true }));
+          }
+        }
+      });
+    }, observerOptions);
+
+    const headerObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setHeaderVisible(true);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    const closingObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setClosingVisible(true);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    blockRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+
+    if (headerRef.current) headerObserver.observe(headerRef.current);
+    if (closingRef.current) closingObserver.observe(closingRef.current);
+
+    return () => {
+      observer.disconnect();
+      headerObserver.disconnect();
+      closingObserver.disconnect();
+    };
+  }, []);
+
   const specializations = [
     {
       title: 'AI Voice & Customer Support Automation',
