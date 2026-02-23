@@ -24,16 +24,16 @@ const Hero = () => {
       
       {/* Content */}
       <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-8 text-center py-20">
-        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight tracking-tight">
+        <h1 className="text-hero text-white mb-8 max-w-[900px] mx-auto">
           Global Industrial Supply.<br />
           Reliable. Efficient. Trusted.
         </h1>
         
         <div className="max-w-4xl mx-auto space-y-2 mb-12">
-          <p className="text-xl md:text-2xl text-gray-100 font-light">
+          <p className="text-tagline text-gray-100">
             Electrical Distribution • Automation Systems • Mechanical Equipment
           </p>
-          <p className="text-xl md:text-2xl text-gray-100 font-light">
+          <p className="text-tagline text-gray-100">
             Power Solutions • Enterprise Hardware
           </p>
         </div>
@@ -42,7 +42,7 @@ const Hero = () => {
           <Button 
             onClick={() => scrollToSection('contact')}
             size="lg"
-            className="bg-white text-[#0A2540] hover:bg-gray-50 transition-all duration-200 text-lg px-10 py-7 font-semibold shadow-lg"
+            className="bg-white text-[#0A2540] hover:bg-gray-50 hover-scale transition-all duration-200 text-[15px] px-7 py-[14px] font-semibold shadow-lg tracking-[0.4px] rounded-md"
           >
             Request a Quotation
           </Button>
@@ -50,7 +50,7 @@ const Hero = () => {
             onClick={() => scrollToSection('contact')}
             size="lg"
             variant="outline"
-            className="border-2 border-white text-white hover:bg-white hover:text-[#0A2540] transition-all duration-200 text-lg px-10 py-7 font-semibold"
+            className="border-2 border-white text-white hover:bg-white hover:text-[#0A2540] hover-scale transition-all duration-200 text-[15px] px-7 py-[14px] font-semibold tracking-[0.4px] rounded-md"
           >
             Contact Sales
           </Button>
