@@ -22,6 +22,11 @@ db = client[os.environ['DB_NAME']]
 # Resend API configuration
 RESEND_API_KEY = os.environ.get('RESEND_API_KEY')
 SENDER_EMAIL = os.environ.get('SENDER_EMAIL', 'onboarding@resend.dev')
+ADMIN_EMAIL = 'shahid@nexlinetrading.com'
+
+# Initialize Resend
+if RESEND_API_KEY:
+    resend.api_key = RESEND_API_KEY
 
 # Create the main app without a prefix
 app = FastAPI()
@@ -40,6 +45,26 @@ class StatusCheck(BaseModel):
 
 class StatusCheckCreate(BaseModel):
     client_name: str
+
+class QuotationRequest(BaseModel):
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    full_name: str
+    company_name: str
+    email: EmailStr
+    phone: str
+    product_category: str
+    destination_country: str
+    message: str
+    timestamp: datetime = Field(default_factory=datetime.utcnow)
+    
+class QuotationRequestCreate(BaseModel):
+    full_name: str
+    company_name: str
+    email: EmailStr
+    phone: str
+    product_category: str
+    destination_country: str
+    message: str
 
 # Add your routes to the router instead of directly to app
 @api_router.get("/")
