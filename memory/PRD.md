@@ -84,7 +84,7 @@ Build a modern, premium corporate landing page for Nexline General Trading FZ LL
   - **Updated Form Title:** Request a Quotation
   - **Fields:** Full Name, Company Name, Email Address, Phone Number, Product Category (dropdown with 8 options), Destination Country (text field), Message (with detailed placeholder)
   - Submit button: "Send Inquiry"
-- Form currently has frontend validation and mock submission with toast notification
+  - **✅ CONNECTED TO BACKEND:** Form now submits to backend API with email notifications
 
 **Product Category Dropdown Options:**
 1. Electrical Distribution Boards
@@ -103,36 +103,71 @@ Build a modern, premium corporate landing page for Nexline General Trading FZ LL
 - Legal disclaimer (small fine print):
   "All brand names and trademarks are the property of their respective owners. Nexline General Trading FZ LLC is an independent supplier and is not an authorized distributor unless otherwise stated."
 
+#### ✅ Backend - Email Integration Complete
+
+**API Endpoints:**
+- `POST /api/quotation/submit` - Handle form submissions with email notifications
+- `GET /api/quotation/list` - Retrieve all quotation requests
+
+**Email Integration (Resend API):**
+- ✅ Admin notification email to shahid@nexlinetrading.com
+  - Subject: "New Quotation Request – Nexline Website – {{Product Category}} – {{Company Name}}"
+  - Professional HTML template with all form details
+  - Includes contact details, inquiry details, and timestamp
+- ⚠️ Client confirmation email (requires domain verification)
+  - Subject: "Acknowledgement of Inquiry – Nex Line General Trading FZ LLC"
+  - Professional HTML template with company branding
+  - Includes Nexline logo and clickable contact links
+  - **Note:** Currently in Resend testing mode - can only send to verified email (shahid@nexlinetrading.com). To send to clients, verify domain at resend.com/domains
+
+**Database Storage:**
+- MongoDB collection: `quotation_requests`
+- Stores all form submissions with timestamps
+- Fields: id, full_name, company_name, email, phone, product_category, destination_country, message, timestamp
+
+**Email Templates:**
+- Professional corporate HTML design
+- Mobile responsive
+- Inline CSS for email client compatibility
+- Color scheme matches website (navy #0A2540, gold #D4AF37)
+
 #### Technologies Used
 - React 19 with React Router
-- Shadcn/UI components (Button, Card, Input, Textarea, Label, Toast)
+- Shadcn/UI components (Button, Card, Input, Textarea, Label, Select, Toast)
 - Tailwind CSS
 - Lucide React icons
 - Sonner for toast notifications
 - Professional Unsplash/Pexels imagery
+- **Backend:** FastAPI with async/await
+- **Email Service:** Resend API
+- **Database:** MongoDB with Motor (async driver)
 
 ### Current Status
-Frontend-only MVP with mock data complete. All sections implemented and styled according to requirements. Contact form has frontend-only functionality with browser-based validation.
+**Frontend:** Complete landing page with fully functional quotation form connected to backend
+**Backend:** Email integration active - admin notifications working, client confirmations require domain verification
+**Database:** MongoDB storing all quotation requests with full details
 
 ### Prioritized Backlog
 
-#### P0 Features (Next Phase)
-- Backend API development (FastAPI)
-- Contact form email integration to shahid@nexlinetrading.com
-- Form submission database storage
-- Email notification system
+#### P0 Features (Completed ✅)
+- ✅ Backend API development (FastAPI)
+- ✅ Contact form email integration to shahid@nexlinetrading.com
+- ✅ Form submission database storage
+- ✅ Email notification system with HTML templates
 
-#### P1 Features
+#### P1 Features (Next Phase)
+- Verify domain (nexlinetrading.com) in Resend to enable client confirmation emails
+- Update sender email from onboarding@resend.dev to no-reply@nexlinetrading.com
 - Privacy Policy and Terms & Conditions pages
 - SEO optimization and meta tags
 - Google Analytics integration
 - Performance optimization
 
 #### P2 Features (Enhancements)
+- Admin dashboard to view and manage quotation requests
 - Multi-language support (Arabic/English)
 - Product catalog with search
-- Request for quotation system with file uploads
-- Admin dashboard for inquiry management
+- Advanced quotation system with file uploads
 - Newsletter subscription
 - Live chat integration
 
