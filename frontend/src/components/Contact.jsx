@@ -98,16 +98,16 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-28 bg-gray-50">
+    <section id="contact" className="section-padding bg-gray-50">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <h2 className="text-4xl md:text-5xl font-bold text-[#0A2540] text-center mb-20 tracking-tight">
+        <h2 className="text-section-heading text-[#0A2540] text-center mb-20">
           Request a Quotation
         </h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Left Column - Contact Info */}
           <div>
-            <h3 className="text-2xl font-bold text-[#0A2540] mb-10">
+            <h3 className="text-subsection text-[#0A2540] mb-10">
               Get in Touch
             </h3>
             
@@ -115,8 +115,8 @@ const Contact = () => {
               <div className="flex items-start gap-5">
                 <MapPin className="w-6 h-6 text-[#D4AF37] flex-shrink-0 mt-1" strokeWidth={2} />
                 <div>
-                  <p className="font-semibold text-[#0A2540] mb-2 text-lg">Address</p>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="font-semibold text-[#0A2540] mb-2 text-[17px]">Address</p>
+                  <p className="text-body-premium text-gray-600">
                     10005 Compass Building<br />
                     Ras Al Khaimah<br />
                     United Arab Emirates
@@ -127,10 +127,10 @@ const Contact = () => {
               <div className="flex items-start gap-5">
                 <Mail className="w-6 h-6 text-[#D4AF37] flex-shrink-0 mt-1" strokeWidth={2} />
                 <div>
-                  <p className="font-semibold text-[#0A2540] mb-2 text-lg">Email</p>
+                  <p className="font-semibold text-[#0A2540] mb-2 text-[17px]">Email</p>
                   <a 
                     href="mailto:shahid@nexlinetrading.com" 
-                    className="text-gray-600 hover:text-[#D4AF37] transition-colors"
+                    className="text-body-premium text-gray-600 hover:text-[#D4AF37] transition-colors"
                   >
                     shahid@nexlinetrading.com
                   </a>
@@ -140,10 +140,10 @@ const Contact = () => {
               <div className="flex items-start gap-5">
                 <Phone className="w-6 h-6 text-[#D4AF37] flex-shrink-0 mt-1" strokeWidth={2} />
                 <div>
-                  <p className="font-semibold text-[#0A2540] mb-2 text-lg">Phone</p>
+                  <p className="font-semibold text-[#0A2540] mb-2 text-[17px]">Phone</p>
                   <a 
                     href="tel:+971564230120" 
-                    className="text-gray-600 hover:text-[#D4AF37] transition-colors"
+                    className="text-body-premium text-gray-600 hover:text-[#D4AF37] transition-colors"
                   >
                     +971 56 423 0120
                   </a>
@@ -258,7 +258,7 @@ const Contact = () => {
               <Button 
                 type="submit"
                 size="lg"
-                className="w-full bg-[#0A2540] text-white hover:bg-[#0d2f4d] transition-colors duration-200 py-7 text-lg font-semibold"
+                className="w-full bg-[#0A2540] text-white hover:bg-[#0d2f4d] hover-scale transition-all duration-200 py-[14px] text-[15px] font-semibold tracking-[0.4px] rounded-md shadow-lg"
               >
                 Send Inquiry
               </Button>

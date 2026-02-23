@@ -17,9 +17,9 @@ const Brands = () => {
   ];
 
   return (
-    <section id="brands" className="py-28 bg-[#0A2540]">
+    <section id="brands" className="section-padding bg-[#0A2540]">
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
-        <h2 className="text-4xl md:text-5xl font-bold text-white text-center mb-20 tracking-tight">
+        <h2 className="text-section-heading text-white text-center mb-20">
           Brands We Supply
         </h2>
 
@@ -31,7 +31,7 @@ const Brands = () => {
                 {brandsColumn1.map((brand, index) => (
                   <div 
                     key={index}
-                    className="text-2xl md:text-3xl font-semibold text-[#0A2540] pb-5 border-b-2 border-gray-100 last:border-0 tracking-tight"
+                    className="text-[20px] font-semibold text-[#0A2540] pb-5 border-b-[1px] border-gray-200 last:border-0 tracking-[0.3px] transition-colors duration-200 hover:text-[#D4AF37] cursor-default"
                   >
                     {brand}
                   </div>
@@ -43,7 +43,7 @@ const Brands = () => {
                 {brandsColumn2.map((brand, index) => (
                   <div 
                     key={index}
-                    className="text-2xl md:text-3xl font-semibold text-[#0A2540] pb-5 border-b-2 border-gray-100 last:border-0 tracking-tight"
+                    className="text-[20px] font-semibold text-[#0A2540] pb-5 border-b-[1px] border-gray-200 last:border-0 tracking-[0.3px] transition-colors duration-200 hover:text-[#D4AF37] cursor-default"
                   >
                     {brand}
                   </div>
@@ -52,8 +52,8 @@ const Brands = () => {
             </div>
 
             {/* Disclaimer */}
-            <div className="mt-12 pt-8 border-t-2 border-[#D4AF37]">
-              <p className="text-sm text-gray-500 text-center font-medium">
+            <div className="mt-12 pt-8 border-t-[1px] border-[#D4AF37]">
+              <p className="text-[16px] text-gray-500 text-center font-medium leading-[1.8]">
                 Representative global brands supplied based on availability.
               </p>
             </div>
