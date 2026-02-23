@@ -158,8 +158,15 @@ async def submit_quotation(request: QuotationRequestCreate):
                     return_exceptions=True
                 )
                 
-                logger.info(f"Admin email sent: {admin_result if not isinstance(admin_result, Exception) else 'Failed'}")
-                logger.info(f"Client email sent: {client_result if not isinstance(client_result, Exception) else 'Failed'}")
+                if isinstance(admin_result, Exception):
+                    logger.error(f"Admin email failed: {str(admin_result)}")
+                else:
+                    logger.info(f"Admin email sent successfully: {admin_result}")
+                    
+                if isinstance(client_result, Exception):
+                    logger.error(f"Client email failed: {str(client_result)}")
+                else:
+                    logger.info(f"Client email sent successfully: {client_result}")
                 
             except Exception as email_error:
                 logger.error(f"Error sending emails: {str(email_error)}")
