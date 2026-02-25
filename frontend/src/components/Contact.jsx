@@ -98,13 +98,13 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-24 bg-[#F9FAFB]">
+    <section id="contact" className="py-20 bg-[#F9FAFB]" aria-labelledby="contact-heading">
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
-        <h2 className="text-section-heading text-[#0A2540] text-center mb-16">
+        <h2 id="contact-heading" className="text-[32px] md:text-[36px] font-semibold text-[#0A2540] text-center mb-12 tracking-tight leading-[1.2]">
           Request a Quotation
         </h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Left Column - Contact Info */}
           <div>
             <h3 className="text-[20px] font-semibold text-[#0A2540] mb-8">
