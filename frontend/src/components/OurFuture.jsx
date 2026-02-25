@@ -103,7 +103,7 @@ const OurFuture = () => {
         {/* Centered Header */}
         <div 
           ref={headerRef}
-          className={`text-center mb-20 transition-all duration-700 ease-out ${
+          className={`text-center mb-16 transition-all duration-700 ease-out ${
             headerVisible 
               ? 'opacity-100 translate-y-0' 
               : 'opacity-0 translate-y-8'
@@ -120,8 +120,8 @@ const OurFuture = () => {
           </p>
         </div>
 
-        {/* Specialization Blocks */}
-        <div className="space-y-20">
+        {/* Specialization Cards */}
+        <div className="space-y-6">
           {specializations.map((spec, index) => (
             <div 
               key={index}
@@ -132,55 +132,64 @@ const OurFuture = () => {
                   ? 'opacity-100 translate-y-0' 
                   : 'opacity-0 translate-y-12'
               }`}
-              style={{ transitionDelay: '100ms' }}
+              style={{ transitionDelay: `${index * 100}ms` }}
               data-testid={`specialization-block-${index + 1}`}
             >
-              {/* Block Container */}
-              <div className="flex flex-col lg:flex-row gap-10 items-center">
-                {/* Left Side - Text */}
-                <div className="w-full lg:w-[70%] order-2 lg:order-1">
-                  <h3 className="text-[22px] font-semibold text-[#0A2540] mb-4 tracking-tight">
-                    {spec.title}
-                  </h3>
-                  
-                  <p className="text-[15px] text-gray-600 leading-[1.75] mb-6">
-                    {spec.description}
-                  </p>
-
-                  <div className="mb-6">
-                    <p className="text-[14px] font-semibold text-[#0A2540] mb-3 uppercase tracking-wide">
-                      We will deliver:
+              {/* Card Container */}
+              <div 
+                className="bg-white rounded-2xl p-6"
+                style={{
+                  border: '1px solid #E9EEF5',
+                  boxShadow: '0px 8px 24px rgba(11,31,58,0.06)'
+                }}
+              >
+                <div className="flex flex-col lg:flex-row gap-6">
+                  {/* Left Side - Icon + Content */}
+                  <div className="flex-1">
+                    {/* Title with Icon */}
+                    <div className="flex items-start gap-4 mb-5">
+                      <img 
+                        src={spec.image}
+                        alt={spec.imageAlt}
+                        loading="lazy"
+                        className="w-12 h-12 object-contain flex-shrink-0 mt-0.5"
+                      />
+                      <h3 className="text-[20px] font-semibold text-[#0A2540] leading-tight">
+                        {spec.title}
+                      </h3>
+                    </div>
+                    
+                    {/* Description */}
+                    <p className="text-[15px] text-gray-600 leading-[1.7] mb-6 pl-16">
+                      {spec.description}
                     </p>
-                    <ul className="space-y-2">
-                      {spec.deliverables.map((item, idx) => (
-                        <li key={idx} className="flex items-start gap-3">
-                          <span className="inline-block w-1 h-1 bg-[#D4AF37] rounded-full mt-2 flex-shrink-0"></span>
-                          <span className="text-[15px] text-gray-600 leading-[1.6]">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
+
+                    {/* Deliverables */}
+                    <div className="pl-16 mb-6">
+                      <p className="text-[13px] font-semibold text-[#0A2540] mb-3 uppercase tracking-wider">
+                        We will deliver:
+                      </p>
+                      <ul className="space-y-2.5">
+                        {spec.deliverables.map((item, idx) => (
+                          <li key={idx} className="flex items-start gap-3">
+                            <span className="inline-block w-1.5 h-1.5 bg-[#D4AF37] rounded-full mt-2 flex-shrink-0"></span>
+                            <span className="text-[14px] text-gray-600 leading-[1.6]">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Divider + Outcome */}
+                    <div className="pl-16">
+                      <div className="border-t border-gray-200 pt-5">
+                        <p className="text-[14px] text-gray-500 leading-[1.6]">
+                          <span className="font-semibold text-[#0A2540]">Outcome:</span> {spec.outcome}
+                        </p>
+                      </div>
+                    </div>
                   </div>
-
-                  <p className="text-[14px] text-gray-500 leading-[1.6] border-l-2 border-[#D4AF37] pl-4">
-                    <span className="font-semibold text-[#0A2540]">Outcome:</span> {spec.outcome}
-                  </p>
-                </div>
-
-                {/* Right Side - Image */}
-                <div className="w-full lg:w-[30%] order-1 lg:order-2 flex justify-center">
-                  <img 
-                    src={spec.image}
-                    alt={spec.imageAlt}
-                    loading="lazy"
-                    className="w-[200px] h-auto opacity-80"
-                  />
                 </div>
               </div>
-
-              {/* Divider between blocks */}
-              {index < specializations.length - 1 && (
-                <div className="border-b border-gray-100 mt-20"></div>
-              )}
             </div>
           ))}
         </div>
@@ -188,7 +197,7 @@ const OurFuture = () => {
         {/* Ending Section - Centered */}
         <div 
           ref={closingRef}
-          className={`mt-24 pt-16 text-center transition-all duration-700 ease-out ${
+          className={`mt-20 text-center transition-all duration-700 ease-out ${
             closingVisible 
               ? 'opacity-100 translate-y-0' 
               : 'opacity-0 translate-y-8'
