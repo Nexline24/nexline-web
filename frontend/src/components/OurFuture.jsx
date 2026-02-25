@@ -98,21 +98,21 @@ const OurFuture = () => {
   ];
 
   return (
-    <section id="our-future" className="bg-white py-24" data-testid="our-future-section">
-      <div className="max-w-5xl mx-auto px-6 lg:px-8">
+    <section id="our-future" className="bg-white py-20" data-testid="our-future-section" aria-labelledby="our-future-heading">
+      <div className="max-w-6xl mx-auto px-6 lg:px-8">
         {/* Centered Header */}
         <div 
           ref={headerRef}
-          className={`text-center mb-16 transition-all duration-700 ease-out ${
+          className={`text-center mb-14 transition-all duration-700 ease-out ${
             headerVisible 
               ? 'opacity-100 translate-y-0' 
               : 'opacity-0 translate-y-8'
           }`}
         >
-          <h2 className="text-[40px] md:text-[48px] font-semibold text-[#0A2540] mb-4 tracking-tight leading-[1.1]">
+          <h2 id="our-future-heading" className="text-[32px] md:text-[40px] lg:text-[48px] font-semibold text-[#0A2540] mb-4 tracking-tight leading-[1.1]">
             OUR FUTURE
           </h2>
-          <p className="text-[24px] md:text-[28px] font-medium text-gray-600 leading-[1.4] mb-5 mx-auto">
+          <p className="text-[22px] md:text-[26px] font-medium text-gray-600 leading-[1.4] mb-5 mx-auto">
             Intelligent Systems. Measurable Efficiency.
           </p>
           <p className="text-[15px] text-gray-500 leading-[1.7] max-w-2xl mx-auto">
@@ -121,7 +121,7 @@ const OurFuture = () => {
         </div>
 
         {/* Specialization Cards */}
-        <div className="space-y-6">
+        <div className="space-y-6 max-w-5xl mx-auto">
           {specializations.map((spec, index) => (
             <div 
               key={index}
