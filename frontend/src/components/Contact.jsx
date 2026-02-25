@@ -107,27 +107,27 @@ const Contact = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Left Column - Contact Info */}
           <div>
-            <h3 className="text-[20px] font-semibold text-[#0A2540] mb-8">
+            <h3 className="text-[18px] font-semibold text-[#0A2540] mb-7">
               Get in Touch
             </h3>
             
-            <div className="space-y-7">
+            <div className="space-y-6">
               <div className="flex items-start gap-4">
-                <MapPin className="w-5 h-5 text-[#D4AF37] flex-shrink-0 mt-1" strokeWidth={2} />
+                <MapPin className="w-5 h-5 text-[#D4AF37] flex-shrink-0 mt-1" strokeWidth={2} aria-hidden="true" />
                 <div>
-                  <p className="font-semibold text-[#0A2540] mb-1 text-[16px]">Address</p>
-                  <p className="text-[15px] text-gray-600 leading-relaxed">
+                  <p className="font-semibold text-[#0A2540] mb-1 text-[15px]">Address</p>
+                  <address className="text-[15px] text-gray-600 leading-relaxed not-italic">
                     10005 Compass Building<br />
                     Ras Al Khaimah<br />
                     United Arab Emirates
-                  </p>
+                  </address>
                 </div>
               </div>
 
               <div className="flex items-start gap-4">
-                <Mail className="w-5 h-5 text-[#D4AF37] flex-shrink-0 mt-1" strokeWidth={2} />
+                <Mail className="w-5 h-5 text-[#D4AF37] flex-shrink-0 mt-1" strokeWidth={2} aria-hidden="true" />
                 <div>
-                  <p className="font-semibold text-[#0A2540] mb-1 text-[16px]">Email</p>
+                  <p className="font-semibold text-[#0A2540] mb-1 text-[15px]">Email</p>
                   <a 
                     href="mailto:shahid@nexlinetrading.com" 
                     className="text-[15px] text-gray-600 hover:text-[#D4AF37] transition-colors"
@@ -138,9 +138,9 @@ const Contact = () => {
               </div>
 
               <div className="flex items-start gap-4">
-                <Phone className="w-5 h-5 text-[#D4AF37] flex-shrink-0 mt-1" strokeWidth={2} />
+                <Phone className="w-5 h-5 text-[#D4AF37] flex-shrink-0 mt-1" strokeWidth={2} aria-hidden="true" />
                 <div>
-                  <p className="font-semibold text-[#0A2540] mb-1 text-[16px]">Phone</p>
+                  <p className="font-semibold text-[#0A2540] mb-1 text-[15px]">Phone</p>
                   <a 
                     href="tel:+971564230120" 
                     className="text-[15px] text-gray-600 hover:text-[#D4AF37] transition-colors"
