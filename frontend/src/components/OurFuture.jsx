@@ -58,40 +58,34 @@ const OurFuture = () => {
   const specializations = [
     {
       title: 'AI Voice & Customer Support Automation',
-      description: 'We will deploy conversational AI voice solutions—including intelligent voice automation similar to those used by leading institutions such as Emirates NBD—to modernize how businesses handle inbound customer interactions.',
-      deliverables: [
-        'AI-powered call handling and smart routing',
-        'Conversational IVR (voice recognition)',
-        '24/7 automated customer support',
-        'CRM and backend system integration'
+      bullets: [
+        'Conversational AI voice solutions',
+        'Intelligent call handling',
+        'Enhance customer support'
       ],
-      outcome: 'Reduced staffing cost. Faster response times. Scalable support infrastructure.',
+      tagline: 'Deliver 24/7 automated support.',
       image: 'https://static.prod-images.emergentagent.com/jobs/0e9b3327-9faa-4aa5-804a-120d0d8ad0ae/images/074a114a690122d9893c9fed926d6841f6e1fdc42daa995c4440ecad62d68c0f.png',
       imageAlt: 'Microphone with waveform illustration'
     },
     {
       title: 'Process Automation & Workflow Optimization',
-      description: 'We will redesign internal workflows using AI-driven automation to reduce manual effort, eliminate bottlenecks, and improve accuracy across business processes.',
-      deliverables: [
-        'Document automation (RFQs, invoices, contracts)',
-        'AI-assisted communication workflows',
-        'Intelligent data extraction and structuring',
-        'Seamless system integration'
+      bullets: [
+        'Redesign internal workflows',
+        'Automate repetitive tasks',
+        'Increase productivity & accuracy'
       ],
-      outcome: 'Lower administrative overhead. Higher operational speed. Improved consistency.',
+      tagline: 'Streamline operations with AI.',
       image: 'https://static.prod-images.emergentagent.com/jobs/0e9b3327-9faa-4aa5-804a-120d0d8ad0ae/images/51fcab41ce4e9f5c4d346fe2fc8fa3d473aa6da4588e507bd23b2aebe60c5f06.png',
       imageAlt: 'Gears with digital circuit illustration'
     },
     {
       title: 'Data Analytics & Predictive Intelligence',
-      description: 'We will convert operational data into actionable intelligence through advanced analytics and machine learning—enabling better decisions, stronger planning, and improved cost control.',
-      deliverables: [
+      bullets: [
         'Cost optimization models',
-        'Demand forecasting and planning insights',
-        'Supplier performance analysis',
-        'Profitability and margin intelligence'
+        'Demand forecasting insights',
+        'Supplier performance analysis'
       ],
-      outcome: 'Smarter decisions. Reduced risk. Sustainable cost efficiency.',
+      tagline: 'Make smarter decisions with data.',
       image: 'https://static.prod-images.emergentagent.com/jobs/0e9b3327-9faa-4aa5-804a-120d0d8ad0ae/images/95ab8e7dfdbad4a35a5ae42e9accab4416876fcbb7f8f2868fa497a5b48fe770.png',
       imageAlt: 'Graph with node network illustration'
     }
@@ -99,29 +93,29 @@ const OurFuture = () => {
 
   return (
     <section id="our-future" className="bg-white py-24" data-testid="our-future-section">
-      <div className="max-w-5xl mx-auto px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto px-6 lg:px-8">
         {/* Centered Header */}
         <div 
           ref={headerRef}
-          className={`text-center mb-16 transition-all duration-700 ease-out ${
+          className={`text-center mb-14 transition-all duration-700 ease-out ${
             headerVisible 
               ? 'opacity-100 translate-y-0' 
               : 'opacity-0 translate-y-8'
           }`}
         >
-          <h2 className="text-[44px] md:text-[52px] font-semibold text-[#0A2540] mb-5 tracking-tight leading-[1.1]">
+          <h2 className="text-[40px] md:text-[48px] font-semibold text-[#0A2540] mb-4 tracking-tight leading-[1.1]">
             OUR FUTURE
           </h2>
-          <p className="text-[26px] md:text-[30px] font-medium text-gray-600 leading-[1.4] mb-6 mx-auto">
+          <p className="text-[24px] md:text-[28px] font-medium text-gray-600 leading-[1.4] mb-5 mx-auto">
             Intelligent Systems. Measurable Efficiency.
           </p>
-          <p className="text-[16px] text-gray-500 leading-[1.8] max-w-3xl mx-auto">
+          <p className="text-[15px] text-gray-500 leading-[1.7] max-w-2xl mx-auto">
             We will help organizations integrate practical AI solutions that will streamline operations, enhance customer experience, and reduce operational costs.
           </p>
         </div>
 
         {/* Specialization Cards */}
-        <div className="space-y-6">
+        <div className="space-y-5">
           {specializations.map((spec, index) => (
             <div 
               key={index}
@@ -137,57 +131,42 @@ const OurFuture = () => {
             >
               {/* Card Container */}
               <div 
-                className="bg-white rounded-2xl p-6"
+                className="bg-white rounded-2xl p-6 md:p-8"
                 style={{
                   border: '1px solid #E9EEF5',
                   boxShadow: '0px 8px 24px rgba(11,31,58,0.06)'
                 }}
               >
-                <div className="flex flex-col lg:flex-row gap-6">
-                  {/* Left Side - Icon + Content */}
-                  <div className="flex-1">
-                    {/* Title with Icon */}
-                    <div className="flex items-start gap-4 mb-5">
-                      <img 
-                        src={spec.image}
-                        alt={spec.imageAlt}
-                        loading="lazy"
-                        className="w-12 h-12 object-contain flex-shrink-0 mt-0.5"
-                      />
-                      <h3 className="text-[20px] font-semibold text-[#0A2540] leading-tight">
-                        {spec.title}
-                      </h3>
-                    </div>
-                    
-                    {/* Description */}
-                    <p className="text-[15px] text-gray-600 leading-[1.7] mb-6 pl-16">
-                      {spec.description}
-                    </p>
+                {/* Header: Icon + Title */}
+                <div className="flex items-center gap-4 mb-6">
+                  <img 
+                    src={spec.image}
+                    alt={spec.imageAlt}
+                    loading="lazy"
+                    className="w-14 h-14 md:w-16 md:h-16 object-contain flex-shrink-0"
+                  />
+                  <h3 className="text-[20px] md:text-[22px] font-bold text-[#0A2540] leading-tight">
+                    {spec.title}
+                  </h3>
+                </div>
+                
+                {/* Bullet Points */}
+                <ul className="space-y-3 mb-6">
+                  {spec.bullets.map((item, idx) => (
+                    <li key={idx} className="flex items-center gap-3">
+                      <span className="inline-block w-2 h-2 bg-gray-400 rounded-full flex-shrink-0"></span>
+                      <span className="text-[16px] md:text-[17px] text-gray-700 font-medium">{item}</span>
+                    </li>
+                  ))}
+                </ul>
 
-                    {/* Deliverables */}
-                    <div className="pl-16 mb-6">
-                      <p className="text-[13px] font-semibold text-[#0A2540] mb-3 uppercase tracking-wider">
-                        We will deliver:
-                      </p>
-                      <ul className="space-y-2.5">
-                        {spec.deliverables.map((item, idx) => (
-                          <li key={idx} className="flex items-start gap-3">
-                            <span className="inline-block w-1.5 h-1.5 bg-[#D4AF37] rounded-full mt-2 flex-shrink-0"></span>
-                            <span className="text-[14px] text-gray-600 leading-[1.6]">{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    {/* Divider + Outcome */}
-                    <div className="pl-16">
-                      <div className="border-t border-gray-200 pt-5">
-                        <p className="text-[14px] text-gray-500 leading-[1.6]">
-                          <span className="font-semibold text-[#0A2540]">Outcome:</span> {spec.outcome}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
+                {/* Divider */}
+                <div className="border-t border-gray-200 pt-5">
+                  {/* Tagline */}
+                  <p className="text-[15px] md:text-[16px]">
+                    <span className="text-[#D4AF37] font-semibold">{spec.tagline.split(' ').slice(0, 2).join(' ')}</span>
+                    <span className="text-gray-600 font-medium"> {spec.tagline.split(' ').slice(2).join(' ')}</span>
+                  </p>
                 </div>
               </div>
             </div>
@@ -197,16 +176,16 @@ const OurFuture = () => {
         {/* Ending Section - Centered */}
         <div 
           ref={closingRef}
-          className={`mt-20 text-center transition-all duration-700 ease-out ${
+          className={`mt-16 text-center transition-all duration-700 ease-out ${
             closingVisible 
               ? 'opacity-100 translate-y-0' 
               : 'opacity-0 translate-y-8'
           }`}
         >
-          <h3 className="text-[32px] md:text-[38px] font-semibold text-[#0A2540] mb-6 tracking-tight leading-[1.2]">
+          <h3 className="text-[28px] md:text-[34px] font-semibold text-[#0A2540] mb-5 tracking-tight leading-[1.2]">
             We will build what's next.
           </h3>
-          <p className="text-[16px] text-gray-500 leading-[1.8] max-w-2xl mx-auto">
+          <p className="text-[15px] text-gray-500 leading-[1.7] max-w-xl mx-auto">
             We will partner with forward-looking teams to implement AI solutions that will continuously improve performance, strengthen competitiveness, and support scalable growth.
           </p>
         </div>
