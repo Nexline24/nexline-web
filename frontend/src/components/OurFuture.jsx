@@ -198,13 +198,13 @@ const OurFuture = () => {
         {/* Ending Section - Centered */}
         <div 
           ref={closingRef}
-          className={`mt-16 text-center transition-all duration-700 ease-out ${
+          className={`mt-14 text-center transition-all duration-700 ease-out ${
             closingVisible 
               ? 'opacity-100 translate-y-0' 
               : 'opacity-0 translate-y-8'
           }`}
         >
-          <h3 className="text-[28px] md:text-[34px] font-semibold text-[#0A2540] mb-5 tracking-tight leading-[1.2]">
+          <h3 className="text-[26px] md:text-[32px] font-semibold text-[#0A2540] mb-5 tracking-tight leading-[1.2]">
             We will build what's next.
           </h3>
           <p className="text-[15px] text-gray-500 leading-[1.7] max-w-xl mx-auto">
