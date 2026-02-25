@@ -60,31 +60,36 @@ const Solutions = () => {
   ];
 
   return (
-    <section id="solutions" className="py-24 bg-white">
+    <section id="solutions" className="py-20 bg-white" aria-labelledby="solutions-heading">
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
-        <h2 className="text-section-heading text-[#0A2540] text-center mb-16">
+        <h2 id="solutions-heading" className="text-[32px] md:text-[36px] font-semibold text-[#0A2540] text-center mb-12 tracking-tight leading-[1.2]">
           Core Solutions
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {solutions.map((solution, index) => (
-            <Card key={index} className="border border-gray-200 hover:shadow-lg transition-all duration-300 group bg-white">
-              <CardContent className="p-6">
-                <h3 className="text-[18px] font-semibold text-[#0A2540] mb-3 leading-tight group-hover:text-[#D4AF37] transition-colors">
+            <Card 
+              key={index} 
+              className="border border-gray-200 hover:shadow-lg transition-all duration-300 group bg-white h-full flex flex-col"
+              style={{ boxShadow: '0px 4px 12px rgba(11,31,58,0.04)' }}
+            >
+              <CardContent className="p-6 flex flex-col h-full">
+                <h3 className="text-[17px] font-semibold text-[#0A2540] mb-3 leading-tight group-hover:text-[#D4AF37] transition-colors min-h-[44px]">
                   {solution.title}
                 </h3>
-                <p className="text-[15px] text-gray-600 mb-5 leading-relaxed">
+                <p className="text-[15px] text-gray-600 mb-5 leading-relaxed flex-grow">
                   {solution.description}
                 </p>
                 
                 {/* Image Strip */}
-                <div className="grid grid-cols-3 gap-2">
+                <div className="grid grid-cols-3 gap-2 mt-auto">
                   {solution.images.map((image, imgIndex) => (
                     <div key={imgIndex} className="aspect-square overflow-hidden rounded">
                       <img
                         src={image}
-                        alt={`${solution.title} ${imgIndex + 1}`}
+                        alt={`${solution.title} product image ${imgIndex + 1}`}
                         className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                        loading="lazy"
                       />
                     </div>
                   ))}
